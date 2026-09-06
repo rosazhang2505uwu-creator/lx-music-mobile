@@ -35,6 +35,11 @@ jobs:
           echo "keyAlias=androiddebugkey" >> android/keystore.properties
           echo "storeFile=../app/debug.keystore" >> android/keystore.properties
 
+      - name: Bundle JS and Assets
+        run: |
+          mkdir -p android/app/src/main/assets
+          npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+
       - name: Build Android Debug APK
         run: |
           cd android
