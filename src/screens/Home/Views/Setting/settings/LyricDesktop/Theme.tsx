@@ -7,7 +7,7 @@ import { StyleSheet, View, TouchableOpacity } from 'react-native'
 import SubTitle from '../../components/SubTitle'
 
 const themes = [
-  ['#08e664', 'rgba(0,0,0,0.6)'],
+  ['#51A467', 'rgba(0,0,0,0.6)'],//修改绿色（对应主题）
   ['#fffa12', 'rgba(0,0,0,0.6)'],
   ['#019ce4', 'rgba(0,0,0,0.6)'],
   ['#ff1222', 'rgba(0,0,0,0.6)'],
@@ -16,6 +16,8 @@ const themes = [
   ['#ffa600', 'rgba(0,0,0,0.6)'],
   ['#000000', '#ffffff'],
   ['#ffffff', 'rgba(0,0,0,0.6)'],
+  ['#5162D0', 'rgba(0,0,0,0.6)'], // 新增颜色 1（对应主题“清热板蓝”）
+  ['#A855F7', 'rgba(0,0,0,0.6)'], // 新增颜色 2（薄荷紫）
 ] as const
 type Theme = typeof themes[number]
 
