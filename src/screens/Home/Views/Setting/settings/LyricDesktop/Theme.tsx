@@ -7,15 +7,15 @@ import { StyleSheet, View, TouchableOpacity } from 'react-native'
 import SubTitle from '../../components/SubTitle'
 
 const themes = [
-  ['#08e664', 'rgba(0,0,0,0.6)'],
-  ['#fffa12', 'rgba(0,0,0,0.6)'],
-  ['#019ce4', 'rgba(0,0,0,0.6)'],
-  ['#ff1222', 'rgba(0,0,0,0.6)'],
-  ['#ef6976', 'rgba(0,0,0,0.6)'],
-  ['#c851d4', 'rgba(0,0,0,0.6)'],
-  ['#ffa600', 'rgba(0,0,0,0.6)'],
-  ['#000000', '#ffffff'],
-  ['#ffffff', 'rgba(0,0,0,0.6)'],
+  ['#51A467', 'rgba(0,0,0,0.6)'],//改为对应主题的绿色
+  ['#FFB916', 'rgba(0,0,0,0.6)'],//改为更舒适的黄色
+  ['#5162D0', 'rgba(0,0,0,0.6)'],//改为对应主题的蓝色
+  ['#FF307B', 'rgba(0,0,0,0.6)'],//改为玫红色
+  ['#ef6976', 'rgba(0,0,0,0.6)'],//粉色，保留
+  ['#7E53DA', 'rgba(0,0,0,0.6)'],//改为更舒适的紫色
+  ['#4F83AF', 'rgba(0,0,0,0.6)'],//改为对应主题“蛋雅深蓝”的蓝色
+  ['#000000', '#ffffff'],//保留
+  ['#ffffff', 'rgba(0,0,0,0.6)'],//保留
 ] as const
 type Theme = typeof themes[number]
 
