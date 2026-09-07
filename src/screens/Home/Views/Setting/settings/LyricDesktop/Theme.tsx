@@ -61,6 +61,54 @@ export default memo(() => {
 const styles = StyleSheet.create({
   list: {
     flexDirection: 'row',
+    flexWrap: 'wrap', // 支持多行折行展示
+  },
+  item: {
+    marginRight: 15,
+    marginTop: 8,
+    alignItems: 'center',
+    width: 26,
+  },
+  colorContent: {
+    width: 26,
+    height: 26,
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+    width: 20,
+    height: 20,
+    borderRadius: 4,
+    elevation: 1,
+  },
+})    </TouchableOpacity>
+  )
+}
+
+export default memo(() => {
+  const t = useI18n()
+
+  const setThemeDesktopLyric = (color: Theme) => {
+    void setDesktopLyricColor(null, color[0], color[1]).then(() => {
+      updateSetting({ 'desktopLyric.style.lyricPlayedColor': color[0], 'desktopLyric.style.lyricShadowColor': color[1] })
+    })
+  }
+
+  return (
+    <SubTitle title={t('setting_lyric_desktop_theme')}>
+      <View style={styles.list}>
+        {
+          themes.map((c, i) => <ThemeItem key={i.toString()} color={c} change={setThemeDesktopLyric} />)
+        }
+      </View>
+    </SubTitle>
+  )
+})
+
+const styles = StyleSheet.create({
+  list: {
+    flexDirection: 'row',
     flexWrap: 'wrap', // 支持多行折行显示
   },
   item: {
