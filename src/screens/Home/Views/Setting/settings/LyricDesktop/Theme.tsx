@@ -16,7 +16,7 @@ const themes = [
   ['#4F83AF', 'rgba(0,0,0,0.6)'], // 淡雅深蓝
   ['#000000', '#ffffff'],         // 黑色
   ['#ffffff', 'rgba(0,0,0,0.6)'], // 白色
-  // 自定义新增颜色预设（可自由增减或修改十六进制色值）
+  // 自定义新增颜色预设
   ['#FF6B35', 'rgba(0,0,0,0.6)'], // 鲜橙色
   ['#00C9A7', 'rgba(0,0,0,0.6)'], // 薄荷绿
   ['#00BBF9', 'rgba(0,0,0,0.6)'], // 亮蓝色
@@ -35,6 +35,54 @@ const ThemeItem = ({ color, change }: {
         <View style={{ ...styles.image, backgroundColor: color[0] }}></View>
       </View>
     </TouchableOpacity>
+  )
+}
+
+export default memo(() => {
+  const t = useI18n()
+
+  const setThemeDesktopLyric = (color: Theme) => {
+    void setDesktopLyricColor(null, color[0], color[1]).then(() => {
+      updateSetting({ 'desktopLyric.style.lyricPlayedColor': color[0], 'desktopLyric.style.lyricShadowColor': color[1] })
+    })
+  }
+
+  return (
+    <SubTitle title={t('setting_lyric_desktop_theme')}>
+      <View style={styles.list}>
+        {
+          themes.map((c, i) => <ThemeItem key={i.toString()} color={c} change={setThemeDesktopLyric} />)
+        }
+      </View>
+    </SubTitle>
+  )
+})
+
+const styles = StyleSheet.create({
+  list: {
+    flexDirection: 'row',
+    flexWrap: 'wrap', // 支持多行折行显示
+  },
+  item: {
+    marginRight: 15,
+    marginTop: 8,
+    alignItems: 'center',
+    width: 26,
+  },
+  colorContent: {
+    width: 26,
+    height: 26,
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+    width: 20,
+    height: 20,
+    borderRadius: 4,
+    elevation: 1,
+  },
+})    </TouchableOpacity>
   )
 }
 
